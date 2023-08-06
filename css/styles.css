@@ -1,0 +1,23 @@
+button {
+  padding: 8px 24px;
+  height: 40px;
+  background-color: #1c304b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 5%;
+  text-transform: uppercase;
+}
+button:hover {
+  background-color: #030c18;
+}
+button:active {
+  background-color: #495667;
+}
+button:has(.icon) {
+  min-width: 40px;
+  height: 40px;
+  padding: 8px;
+}
