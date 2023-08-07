@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Import the custom component -->
+  <script src="src/badge/index.js"></script>
   <script src="src/button/index.js"></script>
   <script src="src/avatar/index.js"></script>
 </head>
@@ -14,9 +15,11 @@
 <body>
   <!-- Use the custom component -->
   <tag-button>Button</tag-button>
-  <button>default button</button>
   <tag-avatar
-    src='https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=3&w=400&h=400&q=80'>
+    src='https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=3&w=400&h=400&q=80'></tag-avatar>
+  <tag-badge>5</tag-badge>
+  <tag-badge type="error">10</tag-badge>
+  <tag-badge type="success">15</tag-badge>
 </body>
 <style>
   * {

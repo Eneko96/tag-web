@@ -2,6 +2,9 @@ class Button extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
+  }
+
+  render() {
     this.shadowRoot.innerHTML = `
     <link rel="stylesheet" href="css/styles.css">
     <button><slot></slot></button>
@@ -9,8 +12,7 @@ class Button extends HTMLElement {
   }
 
   connectedCallback() {
-    const lightDOM = this.textContent;
-    console.log(lightDOM)
+    this.render();
   }
 }
 
