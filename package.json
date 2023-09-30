@@ -5,10 +5,14 @@
   "main": "index.js",
   "scripts": {
     "transpile": "tsc src",
+    "start": "node build/index.js",
     "swc": "swc src --out-dir build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.46.0"
+  }
 }

@@ -30,7 +30,6 @@ class Dropdown extends HTMLElement {
         position: fixed;
         z-index: 2;
         float: left;
-        width: 105px;
         transform: translateY(0.5rem);
         min-width: -webkit-max-content;
         min-width: max-content;
