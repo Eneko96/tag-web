@@ -1,10 +1,10 @@
 <!-- index.html -->
-<!DOCTYPE html>
+<!doctype html>
 <html>
 
 <head>
   <title>My Page</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
 
   <!-- Import the custom component -->
   <script src="src/badge/index.js"></script>
@@ -17,40 +17,60 @@
 
 <body>
   <!-- Use the custom component -->
-  <tag-button>Button</tag-button>
-  <tag-avatar
-    src='https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=3&w=400&h=400&q=80'></tag-avatar>
-  <tag-badge>5</tag-badge>
-  <tag-badge type="error">10</tag-badge>
-  <tag-badge type="success">15</tag-badge>
-  <tag-dropdown list=[1,2,4,5,6,7,8,9,10]>Dropdown button</tag-dropdown>
-  <tag-loader></tag-loader>
-  <tag-toggle></tag-toggle>
+  <section>
+    <tag-button>Button</tag-button>
+  </section>
+  <section>
+    <tag-avatar
+      src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=3&w=400&h=400&q=80"></tag-avatar>
+  </section>
+  <section>
+    <tag-badge>5</tag-badge>
+  </section>
+  <section>
+    <tag-badge type="error">10</tag-badge>
+  </section>
+  <section>
+    <tag-badge type="success">15</tag-badge>
+  </section>
+  <section>
+    <tag-dropdown list="[1,2,4,5,6,7,8,9,10]">Dropdown button</tag-dropdown>
+  </section>
+  <section>
+    <tag-loader></tag-loader>
+  </section>
+  <section>
+    <tag-toggle></tag-toggle>
+  </section>
 </body>
 <style>
   * {
-    font-family: "Roboto", system-ui
+    font-family: 'Roboto', system-ui;
+  }
+
+  section {
+    margin-block: 1rem;
   }
 </style>
 <script>
   const mocks = {
     avatars: [
       'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1961&q=80',
-      'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=3&w=400&h=400&q=80'
-    ]
-  }
+      'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=3&w=400&h=400&q=80',
+    ],
+  };
   const avatar = document.querySelector('tag-avatar');
   const button = document.querySelector('tag-button');
   let toggle = true;
-  button.addEventListener('click', evt => {
+  button.addEventListener('click', (evt) => {
     if (toggle) {
-      avatar.setAttribute('src', mocks.avatars[0])
-      toggle = !toggle
+      avatar.setAttribute('src', mocks.avatars[0]);
+      toggle = !toggle;
     } else {
-      avatar.setAttribute('src', mocks.avatars[1])
-      toggle = !toggle
+      avatar.setAttribute('src', mocks.avatars[1]);
+      toggle = !toggle;
     }
-  })
+  });
 </script>
 
 </html>

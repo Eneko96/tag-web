@@ -2,7 +2,7 @@ class Dropdown extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
-    this.toggleMenu = this.toggleMenu.bind(this)
+    this.toggleMenu = this.toggleMenu.bind(this);
   }
 
   static get observedAttributes() {
@@ -72,23 +72,51 @@ class Dropdown extends HTMLElement {
         <slot></slot>
       </button>
       <div class="menu" style="display: none;">
-         ${list.map(el => `<div class="item">${el}</div>`).join('')}
+         ${list.map((el) => `<div class="item">${el}</div>`).join('')}
       </div>
     </div>
-    `
+    `;
     const button = this.shadowRoot.querySelector('button');
     const menu = this.shadowRoot.querySelector('.menu');
     requestAnimationFrame(() => {
       const buttonWidth = getComputedStyle(button).getPropertyValue('width');
       menu.style.width = buttonWidth;
+    });
 
-    })
-    button.addEventListener('click', this.toggleMenu);
+    document.addEventListener('click', (event) => {
+      if (
+        this.isOpen() &&
+        !menu.contains(event.target) &&
+        !button.contains(event.target)
+      ) {
+        console.log('outside');
+        console.log('event target', event.target === button);
+        this.toggleMenu();
+      }
+    });
+    button.addEventListener('click', (event) => {
+      console.log('is open', this.isOpen());
+      this.toggleMenu();
+      if (!this.isOpen()) return;
+      const buttonPosition = button.getBoundingClientRect();
+      const menuHeight = menu.offsetHeight;
+      const menuTop = buttonPosition.top + buttonPosition.height;
+      if (menuTop + menuHeight > window.innerHeight) {
+        menu.style.top = '-0.5rem';
+      } else {
+        menu.style.top = `${buttonPosition.top + buttonPosition.height}px`;
+      }
+    });
+  }
+
+  isOpen() {
+    const menu = this.shadowRoot.querySelector('.menu');
+    return menu.style.display === 'block';
   }
 
   toggleMenu() {
     const menu = this.shadowRoot.querySelector('.menu');
-    menu.style.display = menu.style.display === 'none' ? 'block' : 'none'
+    menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
   }
 
   connectedCallback() {
@@ -97,8 +125,9 @@ class Dropdown extends HTMLElement {
 
   disconnecedCallback() {
     const button = this.shadowRoot.querySelector('.button');
-    button.removeEventListener('click', this.toggleMenu)
+    button.removeEventListener('click', this.toggleMenu);
+    // remove document event listener (abort controller)
   }
 }
 
-customElements.define('tag-dropdown', Dropdown)
+customElements.define('tag-dropdown', Dropdown);
