@@ -1,3 +1,18 @@
+:root {
+  --unit: 8px;
+}
+
+* {
+  font-family: var(--body-medium-font-family);
+  font-weight: var(--body-medium-font-weight);
+  line-height: var(--body-medium-line-height);
+  font-size: var(--body-medium-font-size);
+  letter-spacing: var(--body-medium-letter-spacing);
+  text-transform: var(--body-medium-text-case);
+  -webkit-text-decoration: var(--body-medium-text-decoration);
+  text-decoration: var(--body-medium-text-decoration);
+}
+
 button {
   padding: 8px 24px;
   height: 40px;
@@ -10,12 +25,15 @@ button {
   letter-spacing: 5%;
   text-transform: uppercase;
 }
+
 button:hover {
   background-color: #030c18;
 }
+
 button:active {
   background-color: #495667;
 }
+
 button:has(.icon) {
   min-width: 40px;
   height: 40px;

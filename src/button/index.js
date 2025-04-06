@@ -8,7 +8,7 @@ class Button extends HTMLElement {
     this.shadowRoot.innerHTML = `
     <link rel="stylesheet" href="css/styles.css">
     <button><slot></slot></button>
-    `
+    `;
   }
 
   connectedCallback() {

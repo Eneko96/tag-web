@@ -83,21 +83,19 @@ class Dropdown extends HTMLElement {
       menu.style.width = buttonWidth;
     });
 
-    document.addEventListener('click', (event) => {
+    document.addEventListener('mousedown', (event) => {
       if (
-        this.isOpen() &&
+        this.isOpen &&
         !menu.contains(event.target) &&
         !button.contains(event.target)
       ) {
-        console.log('outside');
-        console.log('event target', event.target === button);
         this.toggleMenu();
       }
     });
+
     button.addEventListener('click', (event) => {
-      console.log('is open', this.isOpen());
       this.toggleMenu();
-      if (!this.isOpen()) return;
+      if (!this.isOpen) return;
       const buttonPosition = button.getBoundingClientRect();
       const menuHeight = menu.offsetHeight;
       const menuTop = buttonPosition.top + buttonPosition.height;
@@ -109,7 +107,7 @@ class Dropdown extends HTMLElement {
     });
   }
 
-  isOpen() {
+  get isOpen() {
     const menu = this.shadowRoot.querySelector('.menu');
     return menu.style.display === 'block';
   }
