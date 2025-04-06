@@ -39,3 +39,62 @@ button:has(.icon) {
   height: 40px;
   padding: 8px;
 }
+
+button.interactive {
+  background-color: inherit;
+  color: var(--icons-02);
+  border: calc(var(--unit) / 8) solid transparent;
+
+  min-width: calc(4 * var(--unit));
+  width: calc(4 * var(--unit));
+  height: calc(4 * var(--unit));
+  padding: calc(var(--unit) / 2);
+
+  & :has(.material-icons:not(.left, .right)),
+  & :has(.spinner:not(.left, .right)) {
+    min-width: calc(4 * var(--unit));
+    width: calc(4 * var(--unit));
+    height: calc(4 * var(--unit));
+    padding: calc(var(--unit) / 2);
+  }
+
+  & :hover {
+    color: var(--icons-01);
+    background-color: var(--backgrounds-02);
+    border: calc(var(--unit) / 8) solid
+      var(--borders-dividers-interactive-hover);
+  }
+
+  & :active {
+    color: var(--icons-01);
+    background-color: var(--backgrounds-03);
+  }
+
+  & :focus-visible {
+    outline: calc(var(--unit) / 2) solid
+      var(--borders-dividers-interactive-focused);
+  }
+
+  & :disabled {
+    color: var(--icons-03);
+    pointer-events: none;
+  }
+}
+
+.material-icons {
+  font-family: 'Material Icons Round';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}

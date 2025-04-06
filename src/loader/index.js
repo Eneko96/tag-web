@@ -47,7 +47,7 @@ class Loader extends HTMLElement {
   }
     </style>
     <div></div>
-    `
+    `;
   }
 
   connectedCallback() {
@@ -55,4 +55,4 @@ class Loader extends HTMLElement {
   }
 }
 
-customElements.define('tag-loader', Loader)
+customElements.define('tag-loader', Loader);

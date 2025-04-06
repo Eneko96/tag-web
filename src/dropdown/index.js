@@ -93,7 +93,7 @@ class Dropdown extends HTMLElement {
       }
     });
 
-    button.addEventListener('click', (event) => {
+    button.addEventListener('click', () => {
       this.toggleMenu();
       if (!this.isOpen) return;
       const buttonPosition = button.getBoundingClientRect();

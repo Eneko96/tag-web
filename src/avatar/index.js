@@ -1,7 +1,7 @@
 class Avatar extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' })
+    this.attachShadow({ mode: 'open' });
   }
   static get observedAttributes() {
     return ['src'];
@@ -31,7 +31,7 @@ class Avatar extends HTMLElement {
     <div class="wrapper">
       <img src=${this.getAttribute('src')}>
     </div>
-    `
+    `;
   }
 
   connectedCallback() {
